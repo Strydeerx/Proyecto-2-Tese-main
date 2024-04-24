@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar>
+    <app-header></app-header>
+  </ion-toolbar>
+</ion-header>
+
+<ion-button (click)="openModal()" size="small">Abrir Formulario</ion-button>
+
+<ion-content>
+  <ion-card class="custom-modal" *ngIf="showModal">
+    <ion-card-header>
+      
+      <ion-button fill="clear" (click)="closeModal()" class="close-button">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="loginForm" >
+        <div class="form-item">
+          <ion-label class="black-text">Nombre</ion-label>
+          <ion-input  required formControlName="nombre" type="text" [(ngModel)]="nombre" name="nombre" ></ion-input>
+          <ion-label color="danger" *ngIf="loginForm.hasError('pattern', 'nombre')">Nombre invalido</ion-label>
+          
+        </div>
+        <div class="form-item">
+          <ion-label class="black-text">Apellido Paterno</ion-label>
+          <ion-input class="black-text"  required formControlName="apellidoPaterno"type="text" [(ngModel)]="apellidoPaterno" name="apellidoPaterno" ></ion-input>
+          <ion-label color="danger" *ngIf="loginForm.hasError('pattern', 'apellidoPaterno')">Apellido invalido</ion-label>
+        </div>
+        <div class="form-item">
+          <ion-label class="black-text">Apellido Materno</ion-label>
+          <ion-input class="black-text"  required formControlName="apellidoMaterno" type="text" [(ngModel)]="apellidoMaterno" name="apellidoMaterno"></ion-input>
+          <ion-label color="danger" *ngIf="loginForm.hasError('pattern', 'apellidoMaterno')">Apellido invalido</ion-label>
+        </div>
+        <div class="form-item">
+          <ion-label class="black-text">Correo Electrónico</ion-label>
+          <ion-input class="black-text"  required formControlName="correo" type="text" [(ngModel)]="correo" name="correo" ></ion-input>
+          <ion-label color="danger" *ngIf="loginForm.hasError('pattern', 'correo')">Correo no valido</ion-label>
+        </div>
+        <div class="form-item">
+          <ion-label class="black-text">Institución Proveniente</ion-label>
+          <ion-select [(ngModel)]="institucion" name="institucion">
+            <ion-select-option value="opcion1">Opción 1</ion-select-option>
+            <ion-select-option value="opcion2">Opción 2</ion-select-option>
+            <ion-select-option value="opcion3">Opción 3</ion-select-option>
+          </ion-select>
+        </div>
+        <div class="form-item">
+          <ion-label class="black-text">Grado de Estudio</ion-label>
+          <ion-select [(ngModel)]="gradoEstudio" name="gradoEstudio">
+            <ion-select-option value="pregrado">Dr.</ion-select-option>
+            <ion-select-option value="pregrado">Dra.</ion-select-option>
+            <ion-select-option value="pregrado">Mtro.</ion-select-option>
+            <ion-select-option value="pregrado">M. en C.</ion-select-option>
+            <ion-select-option value="pregrado">Ing</ion-select-option>
+            <ion-select-option value="pregrado">Lic</ion-select-option>
+            <ion-select-option value="posgrado">Estudiante</ion-select-option>
+          </ion-select>
+        </div>
+        <div class="form-item">
+          <ion-label class="black-text">Distinción</ion-label>
+          <ion-item lines="none">
+            <ion-checkbox [(ngModel)]="distinciones.opcion1" name="opcion1"></ion-checkbox>
+            <ion-label>Chec</ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-checkbox [(ngModel)]="distinciones.opcion2" name="opcion2"></ion-checkbox>
+            <ion-label>PRODEP</ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-checkbox [(ngModel)]="distinciones.opcion3" name="opcion3"></ion-checkbox>
+            <ion-label>SNII1</ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-checkbox [(ngModel)]="distinciones.opcion4" name="opcion4"></ion-checkbox>
+            <ion-label>SNII2</ion-label>
+          </ion-item><ion-item lines="none">
+            <ion-checkbox [(ngModel)]="distinciones.opcion5" name="opcion5"></ion-checkbox>
+            <ion-label>Emérito</ion-label>
+          </ion-item><ion-item lines="none">
+            <ion-checkbox [(ngModel)]="distinciones.opcion6" name="opcion6"></ion-checkbox>
+            <ion-label>Candidato</ion-label>
+          </ion-item><ion-item lines="none">
+            <ion-checkbox [(ngModel)]="distinciones.opcion7" name="opcion7"></ion-checkbox>
+            <ion-label>Ningnuo</ion-label>
+          </ion-item>
+        </div>
+        <div class="form-item">
+          <ion-label class="black-text">Invitación</ion-label>
+          <ion-select [(ngModel)]="invitacion" name="invitacion">
+            <ion-select-option value="Galardonado">Galardonado</ion-select-option>
+            <ion-select-option value="Coordinador">Coordinador de posgrado</ion-select-option>
+            <ion-select-option value="Junta">Junta Directiva</ion-select-option>
+            <ion-select-option value="Direcctivo">Directivo Externo</ion-select-option>
+            <ion-select-option value="Doctores">Doctores TESE</ion-select-option>
+            <ion-select-option value="Jefa">Jefa de división</ion-select-option>
+            <ion-select-option value="Jefe">Jefe de división</ion-select-option>
+          </ion-select>
+        </div>
+        <ion-button size="small" expand="block" type="submit" class="save-button" [disabled]="loginForm.invalid">Guardar</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,39 @@
+
+.custom-modal {
+   
+    position: relative;
+    background-color: white;
+  
+    ion-card-header {
+      position: relative;
+      
+      .close-button {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        
+      }
+    }
+  
+    ion-card-content {
+      position: relative;
+    
+    }
+  
+    .save-button {
+      position: relative;
+      bottom: 8px;
+      right: 8px;
+      
+    }
+    .black-text {
+        color: black; // Define el color de la fuente para todo el formulario
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        margin-top: 100px; /* Ajusta el margen superior según sea necesario */
+    
+      }
+}
+

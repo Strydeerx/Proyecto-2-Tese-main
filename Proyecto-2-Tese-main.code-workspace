@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"name": "Proyecto-2-Tese-main",
+			"path": "."
+		}
+	],
+	"settings": {
+		"typescript.preferences.autoImportFileExcludePatterns": [
+			"@ionic/angular/common",
+			"@ionic/angular/standalone"
+		]
+	}
+}
